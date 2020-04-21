@@ -1,0 +1,21 @@
+
+@font-face {
+    font-family: Rick;
+    src: url(get_schwifty.ttf);
+}
+
+html {
+    background-color: black;
+    background-image: url(portal.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-
+}
+
+.navbar {
+    background-color: black;
+}
+
+p {
+    font: Rick;
+}
