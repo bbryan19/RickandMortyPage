@@ -1,21 +1,99 @@
 
 @font-face {
     font-family: Rick;
-    src: url(get_schwifty.ttf);
+    src: url('get_schwifty.ttf');
 }
 
 html {
     background-color: black;
-    background-image: url(portal.gif);
+}
+.column {
+    background-color: black;
+    background-image: url(imgs/portal.gif);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-
+    background-position: center;
+    background-position-y: 90%;
 }
 
+.centerme
+
+#home {
+    position: relative;
+    border-bottom: 1px solid rgb(8, 250, 0);
+}
 .navbar {
     background-color: black;
 }
 
+#nav {
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid rgb(8, 250, 0);
+    width: 100%;
+    z-index: 9999;
+}
+
+#characters {
+    width: 100%;
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+}
+
+h2 {
+    font-family: Rick;
+    color: rgb(8, 250, 0);
+    text-align: center;
+}
+
 p {
-    font: Rick;
+    color: white;
+    text-align: center;
+}
+
+#page {
+    background-color: black;
+}
+
+.parent {
+    position: relative;
+    top: 80.25px;
+    display: table;
+    width: 100%;
+    background-color: black;
+}
+#home #characters{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+th, td {
+    color:white;
+}
+
+#row:hover {
+    background-color: rgba(8, 250, 0, 0.788);
+}
+
+.pagination > li > a {
+    background-color: black;
+    border: 1px solid rgb(8, 250, 0);
+    color: rgb(8, 250, 0);
+}
+
+.pagination > li > a:hover {
+    border: 1px solid rgb(8, 250, 0);
+    color: black;
+}
+
+.hidden {
+    visibility: hidden;
 }
