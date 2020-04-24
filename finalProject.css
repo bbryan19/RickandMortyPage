@@ -108,7 +108,8 @@ th, td {
 }
 
 #locations {
-    background-color: rgb(8, 250, 0);
+    background-color: rgb(7, 223, 0);
+    padding-bottom: 3px;
 }
 
 #black {
@@ -116,7 +117,7 @@ th, td {
 }
 
 .pagination2 > li > a {
-    background-color: rgb(8, 250, 0);
+    background-color: rgb(7, 223, 0);
     border: 1px solid black;
     color: black;
 }
@@ -128,4 +129,13 @@ th, td {
 
 #locHead {
     border-top: 1px solid black;
+}
+
+#photo {
+    border-top: 1px solid rgb(8, 250, 0);
+    border-bottom: 1px solid rgb(8, 250, 0);
+}
+
+td > a {
+    color: lightblue;
 }

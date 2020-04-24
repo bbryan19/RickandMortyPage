@@ -1,14 +1,18 @@
 var i = 1;
 var j = 1;
+var k = 1;
 
 $(document).ready(loadPage);
 
+/** This function loads the content needed from the Rick and Morty API via 
+ * ajax requests. This function is called when the document loads.
+ */
 function loadPage()
 {
     console.log("Load Characters via ajax");
 
     $.ajax({
-        url: "https://rickandmortyapi.com/api/character/?page=" + i,
+        url: "https://rickandmortyapi.com/api/character/?page=1",
         type: "GET",
         dataType: "json",
         success: showCharacters,
@@ -18,14 +22,27 @@ function loadPage()
     console.log("Load Locations via ajax");
 
     $.ajax({
-        url: "https://rickandmortyapi.com/api/location/?page=" + j,
+        url: "https://rickandmortyapi.com/api/location/?page=1",
         type: "GET",
         dataType: "json",
         success: showLocations,
         error: showError        
     });
+
+    console.log("Load Episodes via ajax");
+
+    $.ajax({
+        url: "https://rickandmortyapi.com/api/episode/?page=1",
+        type: "GET",
+        dataType: "json",
+        success: showEpisodes,
+        error: showError        
+    });
 }
 
+/** This function loads characters only via ajax request. Used when
+ * the user is scrolling through the character pages.
+ */
 function loadCharacters()
 {
     console.log("Load Characters via ajax");
@@ -41,11 +58,15 @@ function loadCharacters()
     });
 }
 
+/** Used if there is an error */
 function showError()
 {
     console.log("ERROR!");
 }
 
+/** This functions sorts through the JSON coming from the web API
+ * and reads in the wanted character data.
+*/
 function showCharacters(page)
 {
     console.log("Show Character names:" + page);
@@ -57,6 +78,9 @@ function showCharacters(page)
     }
 }
 
+/** This function is used to display the acquired character data on 
+ * the webpage in the form of a table.
+ */
 function displayChar(data)
 {
     var character_data = '';
@@ -71,6 +95,9 @@ function displayChar(data)
     $('#character_table').append(character_data);
 }
 
+/** This function loads locations only via ajax request. Used when
+ * the user is scrolling through the location pages.
+ */
 function loadLocations()
 {
     console.log("Load Locations via ajax");
@@ -86,6 +113,9 @@ function loadLocations()
     });
 }
 
+/** This functions sorts through the JSON coming from the web API
+ * and reads in the wanted location data. 
+ */
 function showLocations(page)
 {
     console.log("Show Locations.");
@@ -97,6 +127,9 @@ function showLocations(page)
     }
 }
 
+/** This function is used to display the acquired location data on 
+ * the webpage in the form of a table.
+ */
 function displayLoc(data)
 {
     var location_data = '';
@@ -109,6 +142,47 @@ function displayLoc(data)
     $('#location_table').append(location_data);
 }
 
+function loadEpisodes(k)
+{
+    console.log("Load Episodes via ajax");
+    
+    fixEpPagination(k);
+
+    $.ajax({
+        url: "https://rickandmortyapi.com/api/episode/?page=" + k,
+        type: "GET",
+        dataType: "json",
+        success: showEpisodes,
+        error: showError        
+    });
+}
+
+function showEpisodes(page)
+{
+    console.log("Show episodes.");
+
+    for (var x in page["results"])
+    {
+        var data = page["results"][x];
+        displayEpisodes(data);
+    }
+}
+
+function displayEpisodes(data)
+{
+    var episode_data = '';
+    episode_data += '<tr id="row">';
+    episode_data += '<td>' + data["id"] + '</td>';
+    episode_data += '<td>' + data["name"] + '</td>';
+    episode_data += '<td>' + data["air_date"] + '</td>';
+    episode_data += '<td>' + data["episode"] + '</td>';
+    episode_data += '</tr>';
+    $('#episode_table').append(episode_data);
+}
+
+/** Fixes character pagination so the next and prev buttons
+ * disappear when necessary.
+ */
 function fixPagination(i)
 {
     if (i == 1)
@@ -132,12 +206,18 @@ function fixPagination(i)
     $("#pageNum").append(pageNum);
 }
 
+/**Removes the characters and calls loadCharacters when a 
+ * characters page is changed.
+ */
 function pagination(i)
 {
     $("#character_table").find("tr:gt(0)").remove();
     loadCharacters(i);
 }
 
+/** Fixes location pagination so the next and prev buttons
+ * disappear when necessary.
+ */
 function fixLocPagination(j)
 {
     if (j == 1)
@@ -161,9 +241,34 @@ function fixLocPagination(j)
     $("#pNum").append(pageNum1);
 }
 
+/**Removes the locations and calls loadCharacters when a 
+ * locations page is changed.
+ */
 function locPagination(j)
 {
     $("#location_table").find("tr:gt(0)").remove();
     loadLocations(j);
 }
 
+
+function fixEpPagination(k)
+{
+    if (k == 1)
+    {
+        var pageNum1 = '<p>Page ' + k + '</p>';
+        $("#pageNum1").empty()
+        $("#pageNum1").append(pageNum1);
+    }
+    else
+    {
+        var pageNum1 = '<p>Page ' + k + '</p>';
+        $("#pageNum1").empty()
+        $("#pageNum1").append(pageNum1);
+    }
+}
+
+function epPagination(k)
+{
+    $("#episode_table").find("tr:gt(0)").remove();
+    loadEpisodes(k);
+}

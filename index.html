@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rick and Morty</title>
+        <!-- Used for JQuery UI -->
         <script 
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -12,6 +13,7 @@
         <script src="projectJS.js"></script>
         <link rel="stylesheet" media="screen" href="finalProject.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- Following are used for Bootstrap -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -36,7 +38,7 @@
                   <a class="nav-link" href="#locationsLink">Locations</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Episodes</a>
+                  <a class="nav-link" href="#episodesLink">Episodes</a>
                 </li>
               </ul>
             </div>
@@ -44,10 +46,10 @@
 
           <div class="parent">
             <div class="column" id="home">
-              <img src="imgs/rmpic.png" alt="Rick and Morty Title" width="100%" style="border-bottom: 1px solid rgb(8, 250, 0);">
+              <img src="imgs/rmpic.png" alt="Rick and Morty Title" width="100%" style="border-bottom: 1px solid rgb(8, 250, 0)">
             </div>            
             <div id="characters"><a name="charactersLink"></a>              
-              <h1></a>Characters</h1>
+              <h1>Characters</h1>
               <p>
                 This list includes all of the characters in Rick and Morty. 
                 Each character includes an ID, a Name, a Status, a Species, a Gender, and an Origin.
@@ -87,14 +89,14 @@
                 </ul>
               </nav>
             </div>          
-            <div><img src="imgs/rick-and-morty-33910.png" alt="Rick and Morty landscape photo" width="100%"></div>
+            <div><img src="imgs/rick-and-morty-33910.png" alt="Rick and Morty landscape photo" width="100%" id="photo"></div>
             <div id="locations"><a name="locationsLink"></a>
-              </a><h1 id="black">Locations</h1>
+              <h1 id="black">Locations</h1>
               <p id="black">
                 This list includes all of the locations in Rick and Morty. 
                 Each location includes an ID, a Name, a Type, and a Dimension.
               </p>
-              <table class="table" id="location_table" style="border-bottom: 1px solid black;">
+              <table class="table" id="location_table" style="border-bottom: 1px solid white;">
                 <tr id="locHead">
                   <th>ID</th>
                   <th>Name</th>
@@ -124,7 +126,30 @@
                 </ul>
               </nav>
             </div>
-            <div id="episodes" class="hidden">This is for episodes table</div>
+            <div><img src="imgs/landscape2.jpg" alt="Rick and Morty landscape photo" width="100%" id="photo"></div>
+            <div id="episodes"><a name="episodesLink"></a>
+              <h1>Episodes</h1>
+              <p>
+                This list includes all of the Rick and Morty episodes. 
+                Each episode includes an ID, a Name, an Air Date, and the episode number.
+                (Does not include season 4).
+              </p>
+              <table class="table" id="episode_table" style="border-bottom: 1px solid white">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Air Date</th>
+                  <th>Episode</th>                                   
+                </tr>
+              </table>
+              <div id="pageNum1" style="width:100%"><p>Page 1</p></div>
+              <nav id="pagination">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item"><a class="page-link" href="#locationsLink1" onclick="k = 1, fixEpPagination(k), epPagination(k)">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#locationsLink1" onclick="k = 2, fixEpPagination(k), epPagination(k)">2</a></li>
+                </ul>
+              </nav>
+            </div>
           </div>
     </body>
 </html>
