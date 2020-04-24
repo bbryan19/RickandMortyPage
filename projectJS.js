@@ -1,7 +1,9 @@
+//Variable declaration
 var i = 1;
 var j = 1;
 var k = 1;
 
+//Calls loadPage when the document is ready.
 $(document).ready(loadPage);
 
 /** This function loads the content needed from the Rick and Morty API via 
@@ -40,7 +42,7 @@ function loadPage()
     });
 }
 
-/** This function loads characters only via ajax request. Used when
+/** This function loads only characters via ajax request. Used when
  * the user is scrolling through the character pages.
  */
 function loadCharacters()
@@ -95,7 +97,7 @@ function displayChar(data)
     $('#character_table').append(character_data);
 }
 
-/** This function loads locations only via ajax request. Used when
+/** This function loads only locations via ajax request. Used when
  * the user is scrolling through the location pages.
  */
 function loadLocations()
@@ -142,6 +144,9 @@ function displayLoc(data)
     $('#location_table').append(location_data);
 }
 
+/** This function loads only episodes via ajax request. Used when
+ * the user is scrolling through the episodes pages.
+ */
 function loadEpisodes(k)
 {
     console.log("Load Episodes via ajax");
@@ -157,6 +162,9 @@ function loadEpisodes(k)
     });
 }
 
+/** This functions sorts through the JSON coming from the web API
+ * and reads in the wanted episode data. 
+ */
 function showEpisodes(page)
 {
     console.log("Show episodes.");
@@ -168,6 +176,9 @@ function showEpisodes(page)
     }
 }
 
+/** This function is used to display the acquired episode data on 
+ * the webpage in the form of a table.
+ */
 function displayEpisodes(data)
 {
     var episode_data = '';
@@ -181,7 +192,7 @@ function displayEpisodes(data)
 }
 
 /** Fixes character pagination so the next and prev buttons
- * disappear when necessary.
+ * disappear when necessary. Also displays current page number.
  */
 function fixPagination(i)
 {
@@ -216,7 +227,7 @@ function pagination(i)
 }
 
 /** Fixes location pagination so the next and prev buttons
- * disappear when necessary.
+ * disappear when necessary. Also displays the current page number.
  */
 function fixLocPagination(j)
 {
@@ -241,7 +252,7 @@ function fixLocPagination(j)
     $("#pNum").append(pageNum1);
 }
 
-/**Removes the locations and calls loadCharacters when a 
+/**Removes the locations and calls loadLocations when a 
  * locations page is changed.
  */
 function locPagination(j)
@@ -250,7 +261,9 @@ function locPagination(j)
     loadLocations(j);
 }
 
-
+/** Fixes episode pagination so the current page number
+ * appears.
+ */
 function fixEpPagination(k)
 {
     if (k == 1)
@@ -267,6 +280,9 @@ function fixEpPagination(k)
     }
 }
 
+/**Removes the episodes and calls loadEpisodes when the 
+ * episodes page is changed.
+ */
 function epPagination(k)
 {
     $("#episode_table").find("tr:gt(0)").remove();
