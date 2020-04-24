@@ -48,7 +48,7 @@ html {
     padding-right:30px;
 }
 
-h2 {
+h1 {
     font-family: Rick;
     color: rgb(8, 250, 0);
     text-align: center;
@@ -73,6 +73,7 @@ p {
 #home #characters{
     display: table-cell;
     vertical-align: middle;
+    border-bottom: 1px solid rgb(8, 250, 0);;
 }
 
 th, td {
@@ -81,6 +82,14 @@ th, td {
 
 #row:hover {
     background-color: rgba(8, 250, 0, 0.788);
+}
+
+#row1:hover{
+    background-color: white;
+}
+
+#row1 > td, #locHead > th, #pNum > p{
+    color: black;
 }
 
 .pagination > li > a {
@@ -96,4 +105,27 @@ th, td {
 
 .hidden {
     visibility: hidden;
+}
+
+#locations {
+    background-color: rgb(8, 250, 0);
+}
+
+#black {
+    color: black;
+}
+
+.pagination2 > li > a {
+    background-color: rgb(8, 250, 0);
+    border: 1px solid black;
+    color: black;
+}
+
+.pagination2 > li > a:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+#locHead {
+    border-top: 1px solid black;
 }
