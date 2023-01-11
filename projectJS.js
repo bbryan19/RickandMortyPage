@@ -6,39 +6,36 @@ var k = 1;
 //Calls loadPage when the document is ready.
 $(document).ready(loadPage);
 
-/** This function loads the content needed from the Rick and Morty API via 
+/** This function loads the content needed from the Rick and Morty API via
  * ajax requests. This function is called when the document loads.
  */
 function loadPage()
 {
     console.log("Load Characters via ajax");
-
     $.ajax({
         url: "https://rickandmortyapi.com/api/character/?page=1",
         type: "GET",
         dataType: "json",
         success: showCharacters,
-        error: showError        
+        error: showError
     });
 
     console.log("Load Locations via ajax");
-
     $.ajax({
         url: "https://rickandmortyapi.com/api/location/?page=1",
         type: "GET",
         dataType: "json",
         success: showLocations,
-        error: showError        
+        error: showError
     });
 
     console.log("Load Episodes via ajax");
-
     $.ajax({
         url: "https://rickandmortyapi.com/api/episode/?page=1",
         type: "GET",
         dataType: "json",
         success: showEpisodes,
-        error: showError        
+        error: showError
     });
 }
 
@@ -48,7 +45,6 @@ function loadPage()
 function loadCharacters()
 {
     console.log("Load Characters via ajax");
-    
     fixPagination(i);
 
     $.ajax({
@@ -56,7 +52,7 @@ function loadCharacters()
         type: "GET",
         dataType: "json",
         success: showCharacters,
-        error: showError        
+        error: showError
     });
 }
 
@@ -72,15 +68,14 @@ function showError()
 function showCharacters(page)
 {
     console.log("Show Character names:" + page);
-
     for (var x in page["results"])
-    {    
+    {
         var data = page["results"][x];
-        displayChar(data);        
+        displayChar(data);
     }
 }
 
-/** This function is used to display the acquired character data on 
+/** This function is used to display the acquired character data on
  * the webpage in the form of a table.
  */
 function displayChar(data)
@@ -103,25 +98,22 @@ function displayChar(data)
 function loadLocations()
 {
     console.log("Load Locations via ajax");
-    
     fixLocPagination(j);
-
     $.ajax({
         url: "https://rickandmortyapi.com/api/location/?page=" + j,
         type: "GET",
         dataType: "json",
         success: showLocations,
-        error: showError        
+        error: showError
     });
 }
 
 /** This functions sorts through the JSON coming from the web API
- * and reads in the wanted location data. 
+ * and reads in the wanted location data.
  */
 function showLocations(page)
 {
     console.log("Show Locations.");
-
     for (var x in page["results"])
     {
         var data = page["results"][x];
@@ -129,13 +121,13 @@ function showLocations(page)
     }
 }
 
-/** This function is used to display the acquired location data on 
+/** This function is used to display the acquired location data on
  * the webpage in the form of a table.
  */
 function displayLoc(data)
 {
     var location_data = '';
-    location_data += '<tr id="row1">';
+    location_data += '<tr id="row">';
     location_data += '<td>' + data["id"] + '</td>';
     location_data += '<td>' + data["name"] + '</td>';
     location_data += '<td>' + data["type"] + '</td>';
@@ -150,25 +142,22 @@ function displayLoc(data)
 function loadEpisodes(k)
 {
     console.log("Load Episodes via ajax");
-    
     fixEpPagination(k);
-
     $.ajax({
         url: "https://rickandmortyapi.com/api/episode/?page=" + k,
         type: "GET",
         dataType: "json",
         success: showEpisodes,
-        error: showError        
+        error: showError
     });
 }
 
 /** This functions sorts through the JSON coming from the web API
- * and reads in the wanted episode data. 
+ * and reads in the wanted episode data.
  */
 function showEpisodes(page)
 {
     console.log("Show episodes.");
-
     for (var x in page["results"])
     {
         var data = page["results"][x];
@@ -176,7 +165,7 @@ function showEpisodes(page)
     }
 }
 
-/** This function is used to display the acquired episode data on 
+/** This function is used to display the acquired episode data on
  * the webpage in the form of a table.
  */
 function displayEpisodes(data)
@@ -211,13 +200,13 @@ function fixPagination(i)
         $("#next").addClass("hidden");
         $("#prev").removeClass("hidden")
     }
-    
+
     var pageNum = '<p>Page ' + i + '</p>';
     $("#pageNum").empty()
     $("#pageNum").append(pageNum);
 }
 
-/**Removes the characters and calls loadCharacters when a 
+/**Removes the characters and calls loadCharacters when a
  * characters page is changed.
  */
 function pagination(i)
@@ -246,13 +235,13 @@ function fixLocPagination(j)
         $("#next1").addClass("hidden");
         $("#prev1").removeClass("hidden");
     }
-    
+
     var pageNum1 = '<p>Page ' + j + '</p>';
     $("#pNum").empty()
     $("#pNum").append(pageNum1);
 }
 
-/**Removes the locations and calls loadLocations when a 
+/**Removes the locations and calls loadLocations when a
  * locations page is changed.
  */
 function locPagination(j)
@@ -280,7 +269,7 @@ function fixEpPagination(k)
     }
 }
 
-/**Removes the episodes and calls loadEpisodes when the 
+/**Removes the episodes and calls loadEpisodes when the
  * episodes page is changed.
  */
 function epPagination(k)

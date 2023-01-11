@@ -4,18 +4,18 @@
     src: url('get_schwifty.ttf');
 }
 
-html {
+html body {
     background-color: black;
 }
+
 .column {
     background-color: black;
     background-image: url(imgs/portal.gif);
     background-repeat: no-repeat;
     background-position: center;
-    background-position-y: 90%;
+    background-position-y: 110%;
+    background-position-x: 55%;
 }
-
-.centerme
 
 #home {
     position: relative;
@@ -28,14 +28,19 @@ html {
 #nav {
     position: fixed;
     top: 0;
-    border-bottom: 1px solid rgb(8, 250, 0);
     width: 100%;
     z-index: 9999;
 }
 
 #characters {
-    width: 100%;
+    padding-top: 10px;
 }
+
+#description {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 /* Clearfix (clear floats) */
 .row::after {
   content: "";
@@ -43,7 +48,7 @@ html {
   display: table;
 }
 
-.navbar-nav > li{
+.navbar-nav > li {
     padding-left:30px;
     padding-right:30px;
 }
@@ -70,18 +75,19 @@ p {
     width: 100%;
     background-color: black;
 }
-#home #characters{
+
+#home #characters {
     display: table-cell;
     vertical-align: middle;
-    border-bottom: 1px solid rgb(8, 250, 0);;
+    border-bottom: 1px solid rgb(8, 250, 0);
 }
 
 th, td {
-    color:white;
+    color: white;
 }
 
 #row:hover {
-    background-color: rgba(8, 250, 0, 0.788);
+    background-color: rgb(8, 250, 0, 0.788);
 }
 
 #row1:hover{
@@ -108,7 +114,7 @@ th, td {
 }
 
 #locations {
-    background-color: rgb(7, 223, 0);
+    background-color: black;
     padding-bottom: 3px;
 }
 

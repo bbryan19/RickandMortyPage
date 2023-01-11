@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodes</title>
+    <!-- Following script tag used for JQuery UI -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+    </script>
+    <script src="projectJS.js"></script>
+    <link rel="stylesheet" media="screen" href="finalProject.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Following are used for Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark" id="nav">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html"><img src="imgs/RandMBW.jpg" alt="Rick and Morty logo" style="width:15%"></a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="characters.html">Characters</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="locations.html">Locations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="episodes.html">Episodes</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div><img src="imgs/landscape2.jpg" alt="Rick and Morty landscape photo" width="100%" id="photo"></div>
+      <div id="episodes"><a name="episodesLink"></a>
+        <h1>Episodes</h1>
+        <p>
+          This list includes all of the Rick and Morty episodes.
+          Each episode includes an ID, a Name, an Air Date, and the episode number.
+          (Does not include season 4).
+        </p>
+        <table class="table" id="episode_table" style="border-bottom: 1px solid white">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Air Date</th>
+            <th>Episode</th>
+          </tr>
+        </table>
+        <div id="pageNum1" style="width:100%"><p>Page 1</p></div>
+        <nav id="pagination">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" onclick="k = 1, fixEpPagination(k), epPagination(k)">1</a></li>
+            <li class="page-item"><a class="page-link" onclick="k = 2, fixEpPagination(k), epPagination(k)">2</a></li>
+            <li class="page-item"><a class="page-link" onclick="k = 3, fixEpPagination(k), epPagination(k)">3</a></li>
+          </ul>
+        </nav>
+    </div>
+</body>
+</html>
